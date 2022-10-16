@@ -58,8 +58,9 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 2.5vw - 1rem, 2.5rem);
   margin: 0px 48px;
+  overflow: auto;
 
   @media ${(p) => p.theme.queries.laptopAndDown} {
     display: none;
