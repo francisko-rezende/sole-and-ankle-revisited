@@ -6,6 +6,7 @@ import Logo from "../Logo";
 import SuperHeader from "../SuperHeader";
 import MobileMenu from "../MobileMenu";
 import Icon from "../Icon";
+import UnstyledButton from "../UnstyledButton";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -31,7 +32,7 @@ const Header = () => {
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <Side />
-        <MobileNav />
+        <MobileNav setShowMobileMenu={setShowMobileMenu} />
       </MainHeader>
 
       <MobileMenu
@@ -65,20 +66,26 @@ const Nav = styled.nav`
   }
 `;
 
-const MobileNav = () => (
+const MobileNav = ({ setShowMobileMenu }) => (
   <StyledNav>
     <ul style={{ display: "flex", alignItems: "baseline", gap: "36px" }}>
       <li>
         {" "}
-        <Icon id="shopping-bag" width="24px" />
+        <UnstyledButton>
+          <Icon id="shopping-bag" width="24px" />
+        </UnstyledButton>
       </li>
       <li>
         {" "}
-        <Icon id="search" />
+        <UnstyledButton>
+          <Icon id="search" />
+        </UnstyledButton>
       </li>
       <li>
         {" "}
-        <Icon id="menu" />
+        <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+          <Icon id="menu" />
+        </UnstyledButton>
       </li>
     </ul>
   </StyledNav>
